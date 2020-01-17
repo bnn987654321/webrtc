@@ -47,7 +47,7 @@ function captureToCanvas() {
 function read(a) {
     //判斷前3碼是否符合，若是才跳轉
     if (a.indexOf("id=") === 0) {
-        window.location = 'https://localhost:5001/QRCode/ScanResult?' + a;
+        window.location = 'http://gbim.res.com.tw/BIMHub/QRCode/ScanResult?' + a;
     }
     else {
         var html = "掃描結果不符合系統分析，請重新掃描";
