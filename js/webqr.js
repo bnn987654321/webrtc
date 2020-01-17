@@ -45,9 +45,14 @@ function captureToCanvas() {
 }
 
 function read(a) {
-    //判斷是否是網址，若是才跳轉
-    if (a.indexOf("http://") === 0) {
-        window.location.replace(a);
+    //判斷前3碼是否符合，若是才跳轉
+    if (a.indexOf("id=") === 0) {
+        window.location = 'https://localhost:5001/QRCode/ScanResult?' + a;
+    }
+    else {
+        var html = "掃描結果不符合系統分析，請重新掃描";
+        html += "<div class=\"btn btn-warning\" style=\"margin:10px;font-size:large;\" onclick=\"load();\">重新掃描</div>";
+        document.getElementById("result").innerHTML = html;
     }
 }
 //判斷是否支援canvas
@@ -115,7 +120,7 @@ function setwebcam() {
         }
     }
     else {
-        alert('no navigator.mediaDevices.enumerateDevices');
+        alert('抱歉，找不到相機裝置，請使用支援WebRtc之瀏覽器');
         console.log("no navigator.mediaDevices.enumerateDevices");
         setwebcam2(options);
     }

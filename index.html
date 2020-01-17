@@ -130,15 +130,11 @@
 <body>
     <div id="main">
         <div id="header">
+            <img src="~/icon/logo.jpg" />
             <div style="position:relative;top:+20px;left:0px;"><g:plusone size="medium"></g:plusone></div>
-            <p id="mp1">
-                QR Code scanner
+            <p id="mp1" style="color:red">
+                請將鏡頭對準QR Code(二維條碼)
             </p>
-            <ul>
-                <li><a href="index.html">Scan</a></li>
-                <li><a href="create.html">Create</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
         </div>
         <div id="mainbody">
             <table class="tsel" border="0" width="100%">
@@ -147,7 +143,7 @@
                         <table class="tsel" border="0">
                             <tr>
                                 <td>
-                                    <span class="selector" id="webcamimg" onclick="setwebcam()" align="left">webcamimg</span>
+                                    <span class="selector" id="webcamimg" align="left">webcamimg</span>
                                 </td>
                             </tr>
                             <tr>
@@ -157,11 +153,6 @@
                                 </td>
                             </tr>
                         </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" align="center">
-                        <img src="down.png" />
                     </td>
                 </tr>
                 <tr>
