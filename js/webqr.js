@@ -76,6 +76,9 @@ function error(error) {
     gUM = false;
     return;
 }
+function aa(){
+	alert('go');
+}
 //網頁載入觸發點
 function load() {
     if (isCanvasSupported()) {
