@@ -96,15 +96,12 @@ function setwebcam() {
 
     var options = true;
     if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
-
-        try {
-
+		try {
             navigator.mediaDevices.enumerateDevices()
                 .then(function (devices) {
-                    console.log('setwebcam');
+                    //先偵測相機
                     devices.forEach(function (device) {
                         if (device.kind === 'videoinput') {
-                            alert(device.label);
                             //console.log(device.label);
                             //console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
                             if (device.label.toLowerCase().search("back") > -1)
@@ -112,6 +109,7 @@ function setwebcam() {
                         }
                         //console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
                     });
+                    //再進入設定
                     setwebcam2(options);
                 });
         }
