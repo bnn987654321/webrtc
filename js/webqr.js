@@ -135,6 +135,7 @@ function setwebcam() {
 }
 
 function setwebcam2(options) {
+	alert('setwebcam2');
     console.log('setwebcam2');
     console.log(options);
     document.getElementById("result").innerHTML = "- scanning -";
