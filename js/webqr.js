@@ -109,8 +109,10 @@ function setwebcam() {
 							//alert(device.label);
                             //console.log(device.label);
                             //console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
-                            if (device.label.toLowerCase().search("back") > -1)
+                            if (device.label.toLowerCase().search("back") > -1) {
+                                alert(device.deviceId );
                                 options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
+                            }
                         }
                         //console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
                     });
