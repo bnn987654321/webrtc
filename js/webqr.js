@@ -87,6 +87,7 @@ function load() {
         qrcode.callback = read;
         document.getElementById("mainbody").style.display = "inline";
         //setwebcam();
+		
     }
     else {
         document.getElementById("mainbody").style.display = "inline";
