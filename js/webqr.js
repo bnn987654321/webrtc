@@ -99,8 +99,13 @@ function load() {
 }
 
 function checknav() {
-    var enumeratorPromise = navigator.mediaDevices.enumerateDevices();
-    alert(enumeratorPromise);
+    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+        alert("不支持 enumerateDevices() .");
+        return;
+    }
+    else {
+        alert('ok');
+    }
 }
 
 function setwebcam() {
