@@ -86,6 +86,7 @@ function load() {
         initCanvas(800, 600);
         qrcode.callback = read;
         document.getElementById("mainbody").style.display = "inline";
+		checknav();
         //setwebcam();
 		
     }
@@ -95,6 +96,11 @@ function load() {
             '<br><p id="mp2">抱歉，請使用支援WebRtc之瀏覽器</p><br><br>' +
             '<p id="mp1">例如Chrome or FireFox</p>';
     }
+}
+
+function checknav() {
+    var enumeratorPromise = navigator.mediaDevices.enumerateDevices();
+    alert(enumeratorPromise);
 }
 
 function setwebcam() {
