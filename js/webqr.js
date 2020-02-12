@@ -91,6 +91,7 @@ function reload() {
 
 //網頁載入觸發點
 function load() {
+	alert('1')
     if (isCanvasSupported()) {
         initCanvas(800, 600);
         qrcode.callback = read;
