@@ -100,7 +100,7 @@ function load() {
 function checknav() {
     
     if (navigator.mediaDevices.getUserMedia) {
-        alert('ok');
+        alert('允許');
     }
     else {
         alert('不允許');
