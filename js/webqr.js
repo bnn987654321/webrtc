@@ -80,6 +80,12 @@ function error(error) {
 function aa(){
 	alert('go');
 }
+
+function reload() {
+    stype = 0;
+    load();
+}
+
 //網頁載入觸發點
 function load() {
     if (isCanvasSupported()) {
@@ -115,6 +121,9 @@ function setwebcam() {
                                 alert(device.deviceId );
                                 options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
                             }
+                            else if (device.label.toLowerCase().search("後置相機") > -1) {
+                                options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
+                            }
                         }
                         //console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
                     });
@@ -148,7 +157,7 @@ function setwebcam2(options) {
 
     console.log(n);
     if (n.mediaDevices.getUserMedia) {
-        alert('ok-1');
+        alert('ok-2');
         n.mediaDevices.getUserMedia({ video: options, audio: false }).
             then(function (stream) {
 				n.mediaDevices.enumerateDevices()
