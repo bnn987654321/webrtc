@@ -163,7 +163,6 @@ function setwebcam2(options) {
 
     console.log(n);
     if (n.mediaDevices.getUserMedia) {
-        alert('ok-2');
         n.mediaDevices.getUserMedia({ video: options, audio: false }).
             then(function (stream) {
 				n.mediaDevices.enumerateDevices()
