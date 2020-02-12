@@ -86,7 +86,6 @@ function load() {
         initCanvas(800, 600);
         qrcode.callback = read;
         document.getElementById("mainbody").style.display = "inline";
-		checknav();
         setwebcam();
     }
     else {
@@ -97,15 +96,6 @@ function load() {
     }
 }
 
-function checknav() {
-    
-    if (navigator.mediaDevices.getUserMedia) {
-        alert('允許');
-    }
-    else {
-        alert('不允許');
-    }
-}
 
 function setwebcam() {
 
@@ -147,7 +137,6 @@ function setwebcam() {
 function setwebcam2(options) {
 	//alert('setwebcam2');
     console.log('setwebcam2');
-	alert(options);
     document.getElementById("result").innerHTML = "- scanning -";
     if (stype === 1) {
         setTimeout(captureToCanvas, 500);
@@ -161,6 +150,14 @@ function setwebcam2(options) {
     if (n.mediaDevices.getUserMedia) {
         n.mediaDevices.getUserMedia({ video: options, audio: false }).
             then(function (stream) {
+				n.mediaDevices.enumerateDevices()
+                    .then(function (devices) {
+                        devices.forEach(function (device) {
+                            if (device.kind === 'videoinput') {
+                                alert(device.label);
+                            }
+                        });
+                    });
                 success(stream);
             }).catch(function (error) {
                 //alert(error);
