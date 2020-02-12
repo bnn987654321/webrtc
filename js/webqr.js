@@ -116,7 +116,7 @@ function setwebcam() {
                 .then(function (devices) {
                     //先偵測相機
                     devices.forEach(function (device) {
-						alert(device.label);
+						//alert(device.label);
                         if (device.kind === 'videoinput') {
 							//alert(device.label);
                             //console.log(device.label);
@@ -145,9 +145,9 @@ function setwebcam() {
 }
 
 function setwebcam2(options) {
-	alert('setwebcam2');
+	//alert('setwebcam2');
     console.log('setwebcam2');
-    console.log(options);
+	alert(options);
     document.getElementById("result").innerHTML = "- scanning -";
     if (stype === 1) {
         setTimeout(captureToCanvas, 500);
