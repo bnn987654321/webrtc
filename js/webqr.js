@@ -87,7 +87,7 @@ function load() {
         qrcode.callback = read;
         document.getElementById("mainbody").style.display = "inline";
 		checknav();
-        //setwebcam();
+        setwebcam();
 		
     }
     else {
