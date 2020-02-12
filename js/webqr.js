@@ -155,6 +155,11 @@ function setwebcam2(options) {
                         devices.forEach(function (device) {
                             if (device.kind === 'videoinput') {
                                 alert(device.label);
+								if (device.label.toLowerCase().search("back") > -1) {
+									//alert(device.deviceId );
+									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
+								}
+								n.getUserMedia({ video: options, audio: false }, success, error);
                             }
                         });
                     });
