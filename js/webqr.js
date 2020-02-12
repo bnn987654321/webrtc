@@ -91,7 +91,7 @@ function reload() {
 
 //網頁載入觸發點
 function load() {
-	alert('1')
+	//alert('1')
     if (isCanvasSupported()) {
         initCanvas(800, 600);
         qrcode.callback = read;
@@ -170,12 +170,12 @@ function setwebcam2(options) {
                             if (device.kind === 'videoinput') {
 								if (device.label.toLowerCase().search("back") > -1) {
 									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
-									alert('back');
+									//alert('back');
 									backcamera_finded = true;
 								}
 								else if (device.label.toLowerCase().search("後置相機") > -1) {
 									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
-									alert('後置相機');
+									//alert('後置相機');
 									backcamera_finded = true;
 								}
                             }
