@@ -70,12 +70,6 @@ function success(stream) {
     gUM = true;
     setTimeout(captureToCanvas, 200);
 	
-    //判斷若有後置相機，則重新讀取相機清單，因為第一次讀取可能尚未取得使用者允許
-    if (backcamera_finded) {
-        backcamera_finded = false;
-        stype = 0;
-        //load();
-    }
 }
 
 function geterror(error) {
