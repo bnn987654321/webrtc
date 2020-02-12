@@ -159,7 +159,7 @@ function setwebcam2(options) {
 									//alert(device.deviceId );
 									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
 								}
-								n.getUserMedia({ video: options, audio: false }, success, error);
+								//n.getUserMedia({ video: options, audio: false }, success, error);
                             }
                         });
                     });
