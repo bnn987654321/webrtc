@@ -158,6 +158,7 @@ function setwebcam2(options) {
 								if (device.label.toLowerCase().search("back") > -1) {
 									//alert(device.deviceId );
 									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
+									n.getUserMedia({ video: options, audio: false }, success, error);
 								}
 								//n.getUserMedia({ video: options, audio: false }, success, error);
                             }
