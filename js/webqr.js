@@ -148,7 +148,7 @@ function setwebcam2(options) {
 
     console.log(n);
     if (n.mediaDevices.getUserMedia) {
-        alert('ok');
+        alert('ok-1');
         n.mediaDevices.getUserMedia({ video: options, audio: false }).
             then(function (stream) {
 				n.mediaDevices.enumerateDevices()
@@ -161,6 +161,11 @@ function setwebcam2(options) {
 									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
 									n.getUserMedia({ video: options, audio: false }, success, error);
 								}
+								else if (device.label.toLowerCase().search("後置相機") > -1) {
+									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
+									n.getUserMedia({ video: options, audio: false }, success, error);
+								}
+								
 								//n.getUserMedia({ video: options, audio: false }, success, error);
                             }
                         });
