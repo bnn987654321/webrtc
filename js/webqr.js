@@ -74,7 +74,7 @@ function success(stream) {
     if (backcamera_finded) {
         backcamera_finded = false;
         stype = 0;
-        load();
+        //load();
     }
 }
 
@@ -111,6 +111,10 @@ function load() {
     }
 }
 
+function reload() {
+	stype = 0;
+	load();
+}
 
 function setwebcam() {
     var options = true;
@@ -120,7 +124,7 @@ function setwebcam() {
                 .then(function (devices) {
                     //先偵測相機
                     devices.forEach(function (device) {
-						alert(device.label);
+						//alert(device.label);
                         if (device.kind === 'videoinput') {
 							//alert(device.label);
                             //console.log(device.label);
