@@ -88,7 +88,6 @@ function load() {
         document.getElementById("mainbody").style.display = "inline";
 		checknav();
         setwebcam();
-		
     }
     else {
         document.getElementById("mainbody").style.display = "inline";
@@ -99,12 +98,12 @@ function load() {
 }
 
 function checknav() {
-    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
-        alert("不支持 enumerateDevices() .");
-        return;
+    
+    if (navigator.mediaDevices.getUserMedia) {
+        alert('ok');
     }
     else {
-        alert('ok');
+        alert('不允許');
     }
 }
 
