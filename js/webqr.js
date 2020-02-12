@@ -12,6 +12,8 @@ var imghtml = '';
 
 var vidhtml = '<video id="v" autoplay></video>';
 
+var backcamera_finded = false; //判斷是否有後置相機
+
 function initCanvas(w, h) {
     gCanvas = document.getElementById("qr-canvas");
     gCanvas.style.width = w + "px";
@@ -34,12 +36,12 @@ function captureToCanvas() {
             }
             catch (e) {
                 console.log(e);
-                setTimeout(captureToCanvas, 500);
+                setTimeout(captureToCanvas, 200);
             };
         }
         catch (e) {
             console.log(e);
-            setTimeout(captureToCanvas, 500);
+            setTimeout(captureToCanvas, 200);
         };
     }
 }
@@ -66,7 +68,14 @@ function success(stream) {
     v.srcObject = stream;
     v.play();
     gUM = true;
-    setTimeout(captureToCanvas, 100);
+    setTimeout(captureToCanvas, 200);
+	
+    //判斷若有後置相機，則重新讀取相機清單，因為第一次讀取可能尚未取得使用者允許
+    if (backcamera_finded) {
+        backcamera_finded = false;
+        stype = 0;
+        load();
+    }
 }
 
 function geterror(error) {
@@ -104,7 +113,6 @@ function load() {
 
 
 function setwebcam() {
-
     var options = true;
     if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
 		try {
@@ -118,7 +126,6 @@ function setwebcam() {
                             //console.log(device.label);
                             //console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
                             if (device.label.toLowerCase().search("back") > -1) {
-                                alert(device.deviceId );
                                 options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
                             }
                             else if (device.label.toLowerCase().search("後置相機") > -1) {
@@ -144,11 +151,10 @@ function setwebcam() {
 }
 
 function setwebcam2(options) {
-	//alert('setwebcam2');
     console.log('setwebcam2');
     document.getElementById("result").innerHTML = "- scanning -";
     if (stype === 1) {
-        setTimeout(captureToCanvas, 500);
+        setTimeout(captureToCanvas, 200);
         return;
     }
     var n = navigator;
@@ -164,20 +170,19 @@ function setwebcam2(options) {
                     .then(function (devices) {
                         devices.forEach(function (device) {
                             if (device.kind === 'videoinput') {
-                                alert(device.label);
 								if (device.label.toLowerCase().search("back") > -1) {
-									//alert(device.deviceId );
 									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
-									n.getUserMedia({ video: options, audio: false }, success, error);
+									alert('back');
+									backcamera_finded = true;
 								}
 								else if (device.label.toLowerCase().search("後置相機") > -1) {
 									options = { 'deviceId': { 'exact': device.deviceId }, 'facingMode': 'environment' };
-									n.getUserMedia({ video: options, audio: false }, success, error);
+									alert('後置相機');
+									backcamera_finded = true;
 								}
-								
-								//n.getUserMedia({ video: options, audio: false }, success, error);
                             }
                         });
+
                     });
                 success(stream);
             }).catch(function (error) {
