@@ -120,7 +120,7 @@ function setwebcam() {
                 .then(function (devices) {
                     //先偵測相機
                     devices.forEach(function (device) {
-						//alert(device.label);
+						alert(device.label);
                         if (device.kind === 'videoinput') {
 							//alert(device.label);
                             //console.log(device.label);
